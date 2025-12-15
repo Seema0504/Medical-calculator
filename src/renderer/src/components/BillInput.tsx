@@ -30,10 +30,18 @@ export const BillInput: React.FC<BillInputProps> = ({
                 <input
                     type="range"
                     min="0"
-                    max="100000" // Sufficiently high static max, or pass dynamic max if needed
+                    max="100000"
                     step="100"
                     value={amount}
                     onChange={(e) => setAmount(Number(e.target.value))}
+                    aria-label="Medical Bill Amount"
+                    style={{
+                        background: `linear-gradient(to right, 
+                            ${amount > 60000 ? '#ef4444' : amount > 30000 ? '#f59e0b' : '#3b82f6'} 0%, 
+                            ${amount > 60000 ? '#ef4444' : amount > 30000 ? '#f59e0b' : '#3b82f6'} ${(amount / 100000) * 100}%, 
+                            #e5e7eb ${(amount / 100000) * 100}%, 
+                            #e5e7eb 100%)`
+                    }}
                 />
             </div>
 
