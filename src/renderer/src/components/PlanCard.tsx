@@ -37,7 +37,7 @@ export const PlanCard: React.FC<PlanCardProps> = ({ name, details, result, rank,
             <div className="plan-header">
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
                     {rank === 'cheapest' && <div className="badge badge-success" style={{ margin: 0 }}>Best Value</div>}
-                    {rank === 'expensive' && <div className="badge badge-danger" style={{ margin: 0 }}>Most Expensive</div>}
+                    {/* Expensive badge removed for 2-plan layout */}
                     {oopReached && <div className="badge badge-danger" style={{ margin: 0 }}>OOP MAX REACHED</div>}
                 </div>
 

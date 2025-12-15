@@ -21,19 +21,14 @@ export const ComparisonSummary: React.FC<ComparisonSummaryProps> = ({ results })
         new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(val)
 
     return (
-        <div className="comparison-box">
-            <div className="stat-box">
-                <div className="stat-label">Best Value Plan</div>
-                <div className="stat-value" style={{ color: 'var(--success-color)' }}>{cheapest.name}</div>
-            </div>
-            <div className="stat-box">
-                <div className="stat-label">Potential Savings</div>
-                <div className="stat-value" style={{ color: 'var(--success-color)' }}>{formatCurrency(savings)}</div>
-            </div>
-            <div className="stat-box">
-                <div className="stat-label">Lowest Total Cost</div>
-                <div className="stat-value">{formatCurrency(cheapest.result.totalCost)}</div>
-            </div>
+        <div className="comparison-box" style={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '1rem', background: 'white', borderRadius: '8px', boxShadow: '0 1px 2px 0 rgba(0,0,0,0.05)' }}>
+            <h3 style={{ margin: 0, fontSize: '1.2rem', color: 'var(--text-main)' }}>
+                Based on your inputs, <span style={{ color: 'var(--primary-color)' }}>{cheapest.name}</span> is cheaper than {expensive.name} by{' '}
+                <span style={{ color: 'var(--success-color)', fontWeight: 'bold' }}>{formatCurrency(savings)}</span>/yr
+            </h3>
+            <p style={{ margin: '0.5rem 0 0', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+                Lowest Total Cost: <strong>{formatCurrency(cheapest.result.totalCost)}</strong>
+            </p>
         </div>
     )
 }

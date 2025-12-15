@@ -53,12 +53,11 @@ function App() {
             <div className="results-grid">
                 {results.map(({ id, name, details, result }) => {
                     const isCheapest = result.totalCost === minCost
-                    const isExpensive = result.totalCost === maxCost
                     const savings = maxCost - result.totalCost
 
                     let rank: 'cheapest' | 'expensive' | 'middle' = 'middle'
                     if (isCheapest) rank = 'cheapest'
-                    else if (isExpensive) rank = 'expensive'
+                    // With only 2 plans, we don't flag "Most Expensive" anymore
 
                     return (
                         <PlanCard

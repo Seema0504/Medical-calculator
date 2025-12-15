@@ -53,30 +53,9 @@ export const PLAN_CONFIG = {
             annualPremium: 7410
         }
     },
-    PPO: {
-        EMPLOYEE_ONLY: {
-            deductible: 1200,
-            outOfPocketMax: 5000,
-            coinsurance: 0.20,
-            annualPremium: 3562
-        },
-        EMPLOYEE_PLUS_ONE: {
-            deductible: 3000,
-            outOfPocketMax: 12000,
-            coinsurance: 0.20,
-            annualPremium: 7150
-        },
-        FAMILY_PLUS_CHILD: {
-            deductible: 3000,
-            outOfPocketMax: 12000,
-            coinsurance: 0.20,
-            annualPremium: 12610
-        }
-    }
 }
 
 export const PLANS: PlanIdentifier[] = [
     { id: 'CORE', name: 'CORE' },
-    { id: 'CDHP', name: 'CDHP Premium' },
-    { id: 'PPO', name: 'PPO Premium' }
+    { id: 'CDHP', name: 'CDHP Premium' }
 ]
