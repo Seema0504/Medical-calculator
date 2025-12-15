@@ -322,4 +322,13 @@ input[type=range] {
     flex-direction: column;
     gap: 0.5rem;
   }
+
+  /* Improve slider touch area for mobile */
+  input[type=range] {
+    height: 40px;
+    /* Increase overall height for easier touch */
+    width: 100%;
+    margin-top: 1rem;
+    cursor: pointer;
+  }
 }
