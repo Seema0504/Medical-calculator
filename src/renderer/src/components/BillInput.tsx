@@ -33,34 +33,37 @@ export const BillInput: React.FC<BillInputProps> = ({
                         <input
                             type="range"
                             min="0"
-                            max="100000"
-                            step="5000"
+                            max="35000"
+                            step="100"
                             value={amount}
                             onChange={(e) => setAmount(Number(e.target.value))}
                             aria-label="Medical Bill Amount"
                             aria-valuemin={0}
-                            aria-valuemax={100000}
+                            aria-valuemax={35000}
                             aria-valuenow={amount}
                             style={{
                                 background: `linear-gradient(to right, 
-                                    ${amount > 60000 ? '#ef4444' : amount > 30000 ? '#f59e0b' : '#3b82f6'} 0%, 
-                                    ${amount > 60000 ? '#ef4444' : amount > 30000 ? '#f59e0b' : '#3b82f6'} ${(amount / 100000) * 100}%, 
-                                    #e5e7eb ${(amount / 100000) * 100}%, 
+                                    ${amount > 25000 ? '#ef4444' : amount > 10000 ? '#f59e0b' : '#3b82f6'} 0%, 
+                                    ${amount > 25000 ? '#ef4444' : amount > 10000 ? '#f59e0b' : '#3b82f6'} ${(amount / 35000) * 100}%, 
+                                    #e5e7eb ${(amount / 35000) * 100}%, 
                                     #e5e7eb 100%)`
                             }}
                         />
                         <div className="slider-markers">
-                            {Array.from({ length: 21 }).map((_, i) => {
+                            {Array.from({ length: 8 }).map((_, i) => {
                                 const val = i * 5000;
+                                // Highlight nearest marker within 2500 range
+                                const isActive = Math.abs(amount - val) < 2500;
                                 return (
                                     <div
                                         key={val}
-                                        className={`marker ${amount === val ? 'active' : ''}`}
+                                        className={`marker ${isActive ? 'active' : ''}`}
                                         onClick={() => setAmount(val)}
+                                        style={{ left: `${(val / 35000) * 100}%`, position: 'absolute', transform: 'translateX(-50%)', width: 'auto' }}
                                     >
                                         <div className="tick"></div>
                                         <span className="label">
-                                            {val === 0 ? '0' : val === 100000 ? '100k' : `${val / 1000}k`}
+                                            {val === 0 ? '$0' : `${val / 1000}k`}
                                         </span>
                                     </div>
                                 )
