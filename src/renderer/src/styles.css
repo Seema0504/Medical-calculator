@@ -467,20 +467,20 @@ input[type=range]::-moz-range-thumb:hover {
   margin-top: -10px;
   position: relative;
   width: 100%;
-  height: 20px;
-  /* Give it specific height to contain absolute markers */
+  height: 40px;
+  /* Increased height for labels */
   pointer-events: none;
-  /* Let clicks pass to markers but container shouldn't block */
 }
 
 .marker {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* width is now auto and positioned absolutely */
   pointer-events: auto;
   cursor: pointer;
   z-index: 10;
+  width: 40px;
+  /* Wider touch area */
 }
 
 .tick {
@@ -496,15 +496,16 @@ input[type=range]::-moz-range-thumb:hover {
 }
 
 .marker .label {
-  font-size: 0.75rem;
-  color: var(--text-secondary);
+  font-size: 0.85rem;
+  color: #374151;
+  /* Darker contrasting color */
   white-space: nowrap;
-  transform: translateX(0%);
-  /* Centered by width:0 + flex center */
+  font-weight: 500;
+  margin-top: 2px;
 }
 
 .marker.active .label {
   color: var(--primary-color);
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
 }
